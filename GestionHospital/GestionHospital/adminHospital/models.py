@@ -59,3 +59,6 @@ class CitaMedica(models.Model):
 
     def __str__(self):
         return f"{self.paciente} - {self.doctor} - {self.fecha} - {self.hora} - {self.estado}"
+@classmethod
+def contar_citas(cls):
+    return cls.objects.count()
