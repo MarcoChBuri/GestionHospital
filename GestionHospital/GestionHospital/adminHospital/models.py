@@ -26,7 +26,6 @@ class Persona(models.Model):
 
 # Modelo Paciente
 class Paciente(Persona):
-    grado = models.CharField(max_length=10)
     identificacion = models.CharField(max_length=10)
 
 # Modelo Doctor
@@ -35,7 +34,6 @@ class Doctor(Persona):
         max_length=50,
         choices=[(tag.name, tag.value) for tag in Especialidad]
     )
-
 
 # Modelo Enfermero
 class Enfermero(Persona):
@@ -59,6 +57,7 @@ class CitaMedica(models.Model):
 
     def __str__(self):
         return f"{self.paciente} - {self.doctor} - {self.fecha} - {self.hora} - {self.estado}"
-@classmethod
-def contar_citas(cls):
-    return cls.objects.count()
+
+    @classmethod
+    def contar_citas(cls):
+      
